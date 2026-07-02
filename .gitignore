@@ -1,0 +1,22 @@
+# CRITICAL — never commit secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+luminary-env/
+venv/
+.venv/
+
+# Session data (local only)
+memory/data/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
