@@ -1093,7 +1093,7 @@ textarea.fi{resize:vertical;min-height:80px;line-height:1.6}
 </div><!-- /app -->
 
 <script>
-const API='http://localhost:8000';
+const API = window.location.origin;
 let SID=localStorage.getItem('lum_sid')||'';
 let sessionData={topics:{},diary:[],todos:[],notes:[],history:[]};
 let userEvents=JSON.parse(localStorage.getItem('lum_events')||'[]');
