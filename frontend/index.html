@@ -1093,7 +1093,7 @@ textarea.fi{resize:vertical;min-height:80px;line-height:1.6}
 </div><!-- /app -->
 
 <script>
-const API = window.location.origin;
+const API='http://localhost:8000';
 let SID=localStorage.getItem('lum_sid')||'';
 let sessionData={topics:{},diary:[],todos:[],notes:[],history:[]};
 let userEvents=JSON.parse(localStorage.getItem('lum_events')||'[]');
@@ -1786,17 +1786,9 @@ async function confusedRephrase() {
   if (btn) { btn.innerHTML = "😕 I'm confused — rephrase differently"; btn.disabled = false; }
 }
 
-// ── callLLM helper ──
+// ── callLLM helper — routes through backend to avoid CORS ──
 async function callLLM(prompt) {
-  try {
-    var res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1200, messages: [{ role: 'user', content: prompt }] })
-    });
-    var d = await res.json();
-    return (d.content && d.content[0] && d.content[0].text) || 'No response';
-  } catch(e) { return 'Error: ' + e.message; }
+  return await callAgent(prompt);
 }
 
 // ── DASHBOARD ──
