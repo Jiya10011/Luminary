@@ -146,7 +146,7 @@ Luminary is deployed on [Render.com](https://render.com) using Docker.
 4. Add environment variable: `GOOGLE_API_KEY` = your key
 5. Click Deploy — live URL provided in ~5 minutes
 
-**Live app:** https://luminary.onrender.com
+**Live app:** [https://luminary.onrender.com](https://luminary-ougu.onrender.com)
 
 ---
 
